@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relatorio</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                --bg-opacity: 1;
+            }
+
+            body {
+                background-color: rgba(237, 233, 254, var(--bg-opacity));
+            }
+
+            div {
+                margin: 2rem;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+                margin-bottom: 2rem;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th {
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>
+            <h1>Listagem de passageiros</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Número do voo</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (passengers.length > 0) { %> 
+                        <% passengers.forEach(passenger => { %>
+                            <tr>
+                                <td><%= passenger.name %></td>
+                                <td><%= passenger.flightNumber %></td>
+                                <td><%= passenger.time %></td>
+                            </tr>
+                        <% }); %>
+                    <% } %>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="2"><%= passengers.length%> passageiros</td></tr>
+                </tfoot>
+            </table>
+        </div>
+        
+    </body>
+</html>
